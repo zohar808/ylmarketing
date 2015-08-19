@@ -1,0 +1,33 @@
+.title {
+ font-family: Arial;
+ font-size: 18px;
+ color: #FF7000;
+ font-weight: bold;
+}
+
+.text {
+	font-family: Arial;
+	font-size: 13px;
+	color: #000000;
+	font-weight: normal;
+	line-height: 120%;
+	text-decoration: none;
+}
+
+.sml_title {
+ font-family: Arial;
+ font-size: 13px;
+ color: #a806a7;
+ font-weight: bold;
+ text-decoration:none;
+ text-underline:none;
+}
+
+.credit_font {
+ font-family: Arial;
+ font-size: 10px;
+ color: #8d8d8d;
+ font-weight: bold;
+ text-decoration:none;
+ text-underline:none;
+ }

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<style type="text/css">
+
+#dhtmltooltip{
+position: absolute;
+width: 150px;
+border: 2px solid black;
+padding: 2px;
+background-color: lightyellow;
+visibility: hidden;
+z-index: 100;
+/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<div id="dhtmltooltip"></div>
+
+<script type="text/javascript">
+
+/***********************************************
+* Cool DHTML tooltip script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var offsetxpoint=-60 //Customize x offset of tooltip
+var offsetypoint=20 //Customize y offset of tooltip
+var ie=document.all
+var ns6=document.getElementById && !document.all
+var enabletip=false
+if (ie||ns6)
+var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+function ietruebody(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function ddrivetip(thetext, thecolor, thewidth){
+if (ns6||ie){
+if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+if (typeof thecolor!="undefined" && thecolor!="") tipobj.style.backgroundColor=thecolor
+tipobj.innerHTML=thetext
+enabletip=true
+return false
+}
+}
+
+function positiontip(e){
+if (enabletip){
+var curX=(ns6)?e.pageX : event.clientX+ietruebody().scrollLeft;
+var curY=(ns6)?e.pageY : event.clientY+ietruebody().scrollTop;
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie&&!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+var bottomedge=ie&&!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+var leftedge=(offsetxpoint<0)? offsetxpoint*(-1) : -1000
+
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<tipobj.offsetWidth)
+//move the horizontal position of the menu to the left by it's width
+tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+else if (curX<leftedge)
+tipobj.style.left="5px"
+else
+//position the horizontal position of the menu where the mouse is positioned
+tipobj.style.left=curX+offsetxpoint+"px"
+
+//same concept with the vertical position
+if (bottomedge<tipobj.offsetHeight)
+tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+else
+tipobj.style.top=curY+offsetypoint+"px"
+tipobj.style.visibility="visible"
+}
+}
+
+function hideddrivetip(){
+if (ns6||ie){
+enabletip=false
+tipobj.style.visibility="hidden"
+tipobj.style.left="-1000px"
+tipobj.style.backgroundColor=''
+tipobj.style.width=''
+}
+}
+
+document.onmousemove=positiontip
+
+</script>
+
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="middle"><span class="text"><a href="http://www.mayah.com/ " target="_blank" onmouseover="ddrivetip('Mayah® Communications : a German company. Mayah® Communications main objective is the development and distribution of innovative high quality solutions for audio and audio/video communications in broadcast and corporate networks.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/mayah_com.jpg" width="110" height="39" border="0" /></a></span></td>
+    <td align="center" valign="middle"><a href="http://www.masterplay.tv/" target="_blank" onmouseover="ddrivetip('Masterplay® : a Swiss company. Offers software solutions for automation in the field of broadcast TV, information channels and video production.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/masterplay.jpg" alt="Masterplay® : a Swiss company. Offers software solutions for automation in the field of broadcast TV, information channels and video production." width="170" height="80" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.sportvu.com" target="_blank" onmouseover="ddrivetip('SportVU® : an Israeli company. SportVU\'s technology allows sports fans watching television, cellular displays, web sites or gaming consoles to get much better insight and understanding of the game events &amp; tactics.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/sportvu.jpg" width="142" height="139" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="http://www.actus-imago.com" target="_blank" onmouseover="ddrivetip('Actus Imago® : an Israeli company. Actus Imago mission is to add Intelligence to the media assets. The new generation, Insight™, was designed specifically to answer the specific requirements of media related companies, such as TV broadcasters, advertisements, research media departments, content creative, censors, government agencies and more. Insight™ applications integrate videos and TV broadcasts seamlessly into the organizations work-flow, taking the daily operations and communication to a new level of detail and accuracy.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/actus.jpg" width="149" height="70" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.orbiter.tv/" target="_blank" onmouseover="ddrivetip('TK-3® : a Polish company. TK-3 designs, produces and distributes solutions in the field of camera stabilizing technology on national and international level. TK-3s broad network enables the company to offer you TV or Film equipment of all kinds according to your specific needs.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/tk3.jpg" width="100" height="56" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.rtvpink.com/english/" target="_blank" onmouseover="ddrivetip('Pink International Company®: a Serbian television-radio network. The leading television (Pink TV) and radio (Radio Pink) broadcast company in Serbia, offering a wide range of entertainment and news programming. Through its radio and television stations, Pink International has defined and set the performance standards for commercial broadcast operations in the country.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/pink.jpg" width="181" height="77" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="http://www.rts.co.yu/" target="_blank" onmouseover="ddrivetip('RTS TV®: a Serbian radio-television network. The public broadcaster in Serbia, which broadcasts and produces a variety of news, drama, and sports programming through radio, television and the Internet. It has recently invested millions in new technology and is expected to become Serbia’s first network to use HDTV (high-definition television). ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/rtstv.jpg" width="144" height="84" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.rtvslo.si/" target="_blank" onmouseover="ddrivetip('RTV Slovenia®: a Slovenian radio-television network. A public institution of special cultural and national importance, performing public service in the field of radio and television activities. RTV has the intention of fulfilling democratic, social and cultural needs of the citizens of the Republic of Slovenia, Slovenians abroad, Slovenian national minorities in Italy, Austria and Hungary, Italian and Hungarian national communities in the Republic of Slovenia. ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/rtvslo.jpg" width="161" height="121" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.top-channel.tv/13/" target="_blank" onmouseover="ddrivetip('Top Channel®: an Albanian television channel. The channel broadcasts news and TV programs, nationally 24 hours a day. Top Channel started its broadcasting services with a news edition in 2001. Today, Top Channel broadcasts nationwide on terrestrial and satellite routes, covering the whole Albanian territory with its signal.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/top_ch.jpg" width="129" height="88" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="http://www.alphatv.gr/index.asp?a_id=45" target="_blank" onmouseover="ddrivetip('Alpha TV®: a Greek television channel. The station features a mix of Greek and foreign shows with an emphasis on entertainment programs. The studios are located near Athens. The public service broadcaster CyBC in Cyprus broadcasts a number of Alpha TVs programs. ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/alpha.jpg" width="125" height="125" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.antenna.gr/www/default.aspx" target="_blank" onmouseover="ddrivetip('ANTENNA Group®: a Greek communications company. Antenna Group has been established as the world\’s largest and most diverse Greek media group, reaching Greek-speaking audiences in all continents. The company first established the radio station ANT1 FM 97.2 in Athens. The success of ANT1 FM radio station led to the creation of ANT1 Television channel, the company\’s corporate and communicative flagship. ANT1 TV has been holding one of the leading spots on viewers\’ ratings scales for 18 years now. Antenna has expanded beyond the Greek borders and since 1993 it has been established as the radio and television station of three continents. With the creation of ANT1 SATELLITE and ANT1 PACIFIC, the voice and images of Greece as well as the pulse of Greek society\’s everyday life are transmitted to Europe, Australia and the Americas via a large satellite network covering the communicational needs of all Greeks living abroad. The company also created a music channel, established itself in the Internet field, began providing telecommunication services, has become a pioneer in the field of mobile services, and much more.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/ant.jpg" width="153" height="120" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.filmnet.gr/default.asp?chkcookie=1" target="_blank" onmouseover="ddrivetip('Filmnet Greece®: a Greek television channel. Filmnet is a premium television service available in Greece, which broadcasts blockbuster movies and hit series. It is the only 24/7 Movie service in Greece. It is owned by Multichoice Hellas, who own and operate Nova- a DTH satellite service, and SuperSport sports channel. Filmnet is available terrestrially and via satellite on Nova. It broadcasts over the air, together with Supersport 1 and Jetix (childrens channel), a decoder is required in order to receive the service for a monthly fee. Repeaters, which enable more than 77% of the population to receive these services, have been set up across the country.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/filment.jpg" width="129" height="66" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="http://www.ert.gr/en/" target="_blank" onmouseover="ddrivetip('ERT Hellenic Broadcasting Corporation S.A.®: a Greek television-radio network. ERT provides radio and television services at national, local and international levels through terrestrial and satellite transmission systems. At present, ERT operates two television channels with nationwide coverage, NET and ET-1; one television network with broader coverage, ET-3; two regional television stations, in Patras and Heraklion; one worldwide satellite broadcast, ERTWorld; and, three digital channels, PRISMA+, CINE+ and SPORT+. Additionally, the company operates 19 regional radio stations; 2 radio stations with worldwide coverage and 6 radio stations with nationwide coverage; and, 3 ERT-3 radio stations, two with local and one with worldwide coverage. Also, the company holds 4 musical ensembles: three orchestras and one choir. Finally, ERTs activities include the publication of a weekly magazine, \'\'Radiotileorasi\'\', which is all about Radio &amp; Television.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/ert.jpg" width="103" height="35" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.iba.org.il/" target="_blank" onmouseover="ddrivetip('IBA®: an Israeli broadcasting authority. This company includes news, weather, cooking, and children’s television channels, as well as many popular talk show\music\news radio stations in Hebrew, Russian, French, English, Amharic, and Arabic. ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/iba.jpg" width="140" height="106" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://10tv.nana10.co.il/" target="_blank" onmouseover="ddrivetip('Channel 10®: an Israeli television channel. Channel 10 is the second commercial television channel in Israel. The channel commenced broadcasting in January 2002. A year later it created its own news company, producing all the news editions and current events programming for the channel. Israel’s two leading news presenters present the primetime news. Channel 10’s news is perceived to be a breakthrough entity, always first in terms of content and concepts. In the 4 years since the channel’s launch the ratings have quadrupled and Channel 10 has become a serious contender in the Israeli television market. The channel’s programs and news are constant winners of national awards; accolades from both the general public and the Academy. Channel10 is carried by both cable, and satellite operators as a free channel. The channel broadcasts 7 days a week.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/ch10.jpg" width="70" height="63" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><a href="http://www.jcs.co.il/" target="_blank" onmouseover="ddrivetip('JCS Group®: an Israeli company. The Jerusalem Capital Studios Group is the leading private television production company in the Middle East, offering everything from pre-production planning through to original content development, leading-edge video production, live TV broadcasts and award-winning post-production. The JCS Group aspires to be a successful international leader in the mass communications industry, providing content and services for all broadcasting platforms and actively participating as a strategic partner in broadcasting channels.', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/jcs.jpg" width="57" height="54" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.polsat.com.pl/" target="_blank" onmouseover="ddrivetip('Polsat®: a Polish television channel.  Polsat is Poland’s third largest television channel. Among its shows are a variety of Polish and American drama and news programs. YL Marketing installed IO8001 systems in Polsat. These systems compress videos in MPEG-4 format and are used to air live television shows on IP networks. ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/polsat.jpg" width="90" height="92" border="0" /></a></td>
+    <td align="center" valign="middle"><a href="http://www.dunatv.hu/" target="_blank" onmouseover="ddrivetip('Duna Television®: a Hungarian television channel. It was the first Hungarian TV station to broadcast on satellite as well as the first Hungarian channel to broadcast 24 hours a day, seven days a week. In 2004 the Duna TV channel also began to broadcast in North America and Australia (as well as Hungry).', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/duna.jpg" width="110" height="60" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="center" valign="middle"><a href="http://www.jaihindtv.in/home.htm" target="_blank" onmouseover="ddrivetip('Jai Hind®: an Indian television channel. It is provided by Sudarshan TV Ltd and is currently using IO8001 systems for live contribution transmission. The satellite channel is an Indian social, Patriotic network. The prime aim of the channel is covering Dev, Desh, and Dharma (meaning thereby the God, the Mother Land and the Religion). Through this 24 hrs\ 7 days a week channel, Sudarshan TV Ltd gives equal importance to programs based on Indian culture, ancient history, talk shows, and News. ', 'white', 350)";
+ onmouseout="hideddrivetip()"><img src="http://ylmarkting.betagroup.co.il/image/jai.jpg" width="132" height="99" border="0" /></a></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
